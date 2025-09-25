@@ -188,7 +188,7 @@
                         <div class="space-y-4">
                             <div>
                                 <label class="block text-white/80 text-sm mb-2">Hit Rate (%):</label>
-                                <input type="number" id="hitrate-input" class="w-full bg-white/20 text-white rounded-lg p-3 border border-white/30 focus:border-pink-500 focus:outline-none" value="15" min="1" max="100" step="0.1">
+                                <input type="number" id="hitrate-input" class="w-full bg-white/20 text-white rounded-lg p-3 border border-white/30 focus:border-pink-500 focus:outline-none" value="2" min="1" max="100" step="0.1">
                             </div>
                         </div>
                     </div>
@@ -408,7 +408,7 @@
             totalHours: 10,
             volume: 30000,
             spin: 3,
-            hitRate: 15
+            hitRate: 2
         };
 
         // Initialize calculator
@@ -466,6 +466,9 @@
             if (diff < 0) {
                 diff += 24;
             }
+            
+            // Round down to nearest hour
+            diff = Math.floor(diff);
             
             state.totalHours = diff;
             document.getElementById('total-hours-display').textContent = `${diff} horas`;
@@ -682,7 +685,7 @@
             quoteContent += `<br><strong>Custo Licenças: R$ ${licenseCostTotal.toLocaleString('pt-BR', {minimumFractionDigits: 2})}</strong><br>`;
             quoteContent += `<strong>Custo Telefonia: R$ ${phoneCosts.totalPhoneCost.toLocaleString('pt-BR', {minimumFractionDigits: 2})}</strong><br>`;
             quoteContent += `<br><strong>VALOR TOTAL: R$ ${grandTotal.toLocaleString('pt-BR', {minimumFractionDigits: 2})}</strong><br><br>`;
-            quoteContent += `Proposta válida por 15 dias.<br>Condições de pagamento: a combinar.`;
+            quoteContent += `Proposta válida por 7 dias.`;
             
             document.getElementById('quote-content').innerHTML = quoteContent;
             document.getElementById('quote-display').classList.remove('hidden');
@@ -699,7 +702,7 @@
                 totalHours: 10,
                 volume: 30000,
                 spin: 3,
-                hitRate: 15
+                hitRate: 2
             };
             
             // Reset UI
@@ -708,7 +711,7 @@
             document.getElementById('end-time').value = '18:00';
             document.getElementById('volume-input').value = 30000;
             document.getElementById('spin-slider').value = 3;
-            document.getElementById('hitrate-input').value = 15;
+            document.getElementById('hitrate-input').value = 2;
             
             document.getElementById('total-hours-display').textContent = '10 horas';
             document.getElementById('spin-display').textContent = '3';
@@ -724,5 +727,5 @@
         // Initialize on load
         initCalculator();
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'984b8fd5d26b8e5a',t:'MTc1ODgxNDIxNi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'984c77905286f1e1',t:'MTc1ODgyMzcwOC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
